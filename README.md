@@ -1,6 +1,16 @@
 # ReactMentoring
 
-### To run app:
+### To build app:
 ```
-npm start
+npm run build
+```
+
+### To run app on dev server:
+```
+npm run start
+```
+
+### To execute tests:
+```
+npm run test
 ```
