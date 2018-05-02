@@ -1,5 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+
+const APP_TITLE = "App";
 
 module.exports = env => {
     const isProduction = env ? env.prod : false;
@@ -26,14 +29,37 @@ module.exports = env => {
 
         plugins: [
             new HtmlWebpackPlugin({
-                title: "App",
+                title: APP_TITLE,
                 hash: true,
-                template: path.resolve(__dirname, "./index.html")
+                template: "./index.html"
             })
         ],
 
         devServer: {
-            contentBase: "./dist"
+            contentBase: path.resolve(__dirname, "dist")
+        },
+
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    commons: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: "vendor",
+                        chunks: "all"
+                    }
+                }
+            },
+            minimizer: [
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true
+                })
+            ]
+        },
+
+        output: {
+            filename: "[name].[chunkhash].js",
+            path: path.resolve(__dirname, "dist")
         }
     };
 };
