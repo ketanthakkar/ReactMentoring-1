@@ -119,7 +119,9 @@ class Details extends React.Component {
                     <DetailsTitle vote_average={vote_average}>{title}</DetailsTitle>
                     <DetailsTagline>{tagline}</DetailsTagline>
                     <div>
-                        <DetailsYear>{release_date.slice(0, release_date.indexOf('-'))}</DetailsYear>
+                        <DetailsYear>
+                            {release_date && release_date.slice(0, release_date.indexOf('-'))}
+                        </DetailsYear>
                         <DetailsRuntime>{runtime} min</DetailsRuntime>
                     </div>
                     <DetailsOverview>{overview}</DetailsOverview>
@@ -130,6 +132,7 @@ class Details extends React.Component {
 }
 
 Details.propTypes = {
+    item: PropTypes.object,
     poster_path: PropTypes.string,
     title: PropTypes.string,
     vote_average: PropTypes.number,
@@ -141,12 +144,13 @@ Details.propTypes = {
 };
 
 Details.defaultProps = {
+    item: {},
     poster_path: '',
     title: '',
     vote_average: 0,
     tagline: '',
     release_date: '',
-    runtime:  null,
+    runtime: null,
     overview: '',
     goToSearchPage: null
 };

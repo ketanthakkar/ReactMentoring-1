@@ -1,0 +1,355 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details should be like snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Details
+    goToSearchPage={[MockFunction]}
+    item={Object {}}
+    overview=""
+    poster_path=""
+    release_date=""
+    runtime={null}
+    tagline=""
+    title=""
+    vote_average={0}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Details__DetailsSearchButton
+          onClick={[Function]}
+        >
+          search
+        </Details__DetailsSearchButton>,
+        <Details__DetailsImage
+          src={undefined}
+        />,
+        <Details__DetailsDescription>
+          <Details__DetailsTitle
+            vote_average={undefined}
+          />
+          <Details__DetailsTagline />
+          <div>
+            <Details__DetailsYear />
+            <Details__DetailsRuntime>
+               min
+            </Details__DetailsRuntime>
+          </div>
+          <Details__DetailsOverview />
+        </Details__DetailsDescription>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "search",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "search",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "src": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Details__DetailsTitle
+              vote_average={undefined}
+            />,
+            <Details__DetailsTagline />,
+            <div>
+              <Details__DetailsYear />
+              <Details__DetailsRuntime>
+                 min
+              </Details__DetailsRuntime>
+            </div>,
+            <Details__DetailsOverview />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": undefined,
+              "vote_average": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Details__DetailsYear />,
+                <Details__DetailsRuntime>
+                   min
+                </Details__DetailsRuntime>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    undefined,
+                    " min",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                  " min",
+                ],
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Details__DetailsSearchButton
+            onClick={[Function]}
+          >
+            search
+          </Details__DetailsSearchButton>,
+          <Details__DetailsImage
+            src={undefined}
+          />,
+          <Details__DetailsDescription>
+            <Details__DetailsTitle
+              vote_average={undefined}
+            />
+            <Details__DetailsTagline />
+            <div>
+              <Details__DetailsYear />
+              <Details__DetailsRuntime>
+                 min
+              </Details__DetailsRuntime>
+            </div>
+            <Details__DetailsOverview />
+          </Details__DetailsDescription>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "search",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "search",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "src": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Details__DetailsTitle
+                vote_average={undefined}
+              />,
+              <Details__DetailsTagline />,
+              <div>
+                <Details__DetailsYear />
+                <Details__DetailsRuntime>
+                   min
+                </Details__DetailsRuntime>
+              </div>,
+              <Details__DetailsOverview />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": undefined,
+                "vote_average": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Details__DetailsYear />,
+                  <Details__DetailsRuntime>
+                     min
+                  </Details__DetailsRuntime>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      undefined,
+                      " min",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                    " min",
+                  ],
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

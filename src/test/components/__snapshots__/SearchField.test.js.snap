@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchField should be like snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SearchField
+    onSearch={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <SearchField__SearchFiledLabel>
+          find your movie
+        </SearchField__SearchFiledLabel>,
+        <SearchField__SearchFieldInput
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          type="text"
+          value=""
+        />,
+        <div>
+          <SearchField__SearchFilterLabel>
+            search by
+          </SearchField__SearchFilterLabel>
+          <SearchField__SearchFilterButton
+            className="active"
+            onClick={[Function]}
+          >
+            title
+          </SearchField__SearchFilterButton>
+          <SearchField__SearchFilterButton
+            className={false}
+            onClick={[Function]}
+          >
+            genre
+          </SearchField__SearchFilterButton>
+          <SearchField__SearchButton
+            onClick={[Function]}
+            type="button"
+          >
+            search
+          </SearchField__SearchButton>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "find your movie",
+        },
+        "ref": null,
+        "rendered": "find your movie",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onChange": [Function],
+          "onKeyPress": [Function],
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <SearchField__SearchFilterLabel>
+              search by
+            </SearchField__SearchFilterLabel>,
+            <SearchField__SearchFilterButton
+              className="active"
+              onClick={[Function]}
+            >
+              title
+            </SearchField__SearchFilterButton>,
+            <SearchField__SearchFilterButton
+              className={false}
+              onClick={[Function]}
+            >
+              genre
+            </SearchField__SearchFilterButton>,
+            <SearchField__SearchButton
+              onClick={[Function]}
+              type="button"
+            >
+              search
+            </SearchField__SearchButton>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "search by",
+            },
+            "ref": null,
+            "rendered": "search by",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "title",
+              "className": "active",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "title",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "genre",
+              "className": false,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "genre",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "search",
+              "onClick": [Function],
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": "search",
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <SearchField__SearchFiledLabel>
+            find your movie
+          </SearchField__SearchFiledLabel>,
+          <SearchField__SearchFieldInput
+            onChange={[Function]}
+            onKeyPress={[Function]}
+            type="text"
+            value=""
+          />,
+          <div>
+            <SearchField__SearchFilterLabel>
+              search by
+            </SearchField__SearchFilterLabel>
+            <SearchField__SearchFilterButton
+              className="active"
+              onClick={[Function]}
+            >
+              title
+            </SearchField__SearchFilterButton>
+            <SearchField__SearchFilterButton
+              className={false}
+              onClick={[Function]}
+            >
+              genre
+            </SearchField__SearchFilterButton>
+            <SearchField__SearchButton
+              onClick={[Function]}
+              type="button"
+            >
+              search
+            </SearchField__SearchButton>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "find your movie",
+          },
+          "ref": null,
+          "rendered": "find your movie",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onChange": [Function],
+            "onKeyPress": [Function],
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <SearchField__SearchFilterLabel>
+                search by
+              </SearchField__SearchFilterLabel>,
+              <SearchField__SearchFilterButton
+                className="active"
+                onClick={[Function]}
+              >
+                title
+              </SearchField__SearchFilterButton>,
+              <SearchField__SearchFilterButton
+                className={false}
+                onClick={[Function]}
+              >
+                genre
+              </SearchField__SearchFilterButton>,
+              <SearchField__SearchButton
+                onClick={[Function]}
+                type="button"
+              >
+                search
+              </SearchField__SearchButton>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "search by",
+              },
+              "ref": null,
+              "rendered": "search by",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "title",
+                "className": "active",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "title",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "genre",
+                "className": false,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "genre",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "search",
+                "onClick": [Function],
+                "type": "button",
+              },
+              "ref": null,
+              "rendered": "search",
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
