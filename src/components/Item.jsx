@@ -40,16 +40,16 @@ const ItemGenres = styled.div`
 `;
 
 class Item extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    _onItemClick() {
+    onItemClick() {
         const {
             item,
-            onItemClick
+            getItem,
+            getItemsByGenre,
         } = this.props;
-        onItemClick(item.id);
+        const searchValue = item.genres && item.genres[0];
+
+        getItem(item.id);
+        getItemsByGenre(searchValue);
     }
 
     render() {
@@ -68,7 +68,7 @@ class Item extends React.Component {
             <ItemWrapper>
                 <ItemImage
                     src={poster_path}
-                    onClick={this._onItemClick.bind(this)}
+                    onClick={this.onItemClick.bind(this)}
                 />
                 <ItemInfo>
                     <ItemTitle>{title}</ItemTitle>
@@ -85,7 +85,9 @@ Item.propTypes = {
     poster_path: PropTypes.string,
     title: PropTypes.string,
     release_date: PropTypes.string,
-    genres: PropTypes.array
+    genres: PropTypes.array,
+    getItem: PropTypes.func,
+    getItemsByGenre: PropTypes.func,
 };
 
 Item.defaultProps = {
@@ -93,7 +95,9 @@ Item.defaultProps = {
     poster_path: '',
     title: '',
     release_date: '',
-    genres: []
+    genres: [],
+    getItem: null,
+    getItemsByGenre: null,
 };
 
 export default Item;

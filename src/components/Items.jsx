@@ -25,26 +25,24 @@ const EmptyResults = styled.div`
 `;
 
 class Items extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {
             items,
-            onItemClick
+            getItem,
+            getItemsByGenre
         } = this.props;
 
         return (
             <ItemsSection>
                 <ItemsWrapper>
-                    {items.length ? (
+                    {items && items.length ? (
                         items.map(
                             item => (
                                 <Item
                                     key={item.id}
                                     item={item}
-                                    onItemClick={onItemClick}
+                                    getItem={getItem}
+                                    getItemsByGenre={getItemsByGenre}
                                 />
                             )
                         )
@@ -59,12 +57,14 @@ class Items extends React.Component {
 
 Items.propTypes = {
     items: PropTypes.array,
-    onItemClick: PropTypes.func
+    getItem: PropTypes.func,
+    getItemsByGenre: PropTypes.func,
 };
 
 Items.defaultProps = {
     items: [],
-    onItemClick: null
+    getItem: null,
+    getItemsByGenre: null,
 };
 
 export default Items;

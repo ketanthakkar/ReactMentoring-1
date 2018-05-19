@@ -41,36 +41,26 @@ const InfoBarSortByLink = styled.span`
 `;
 
 class InfoBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sortBy: SORT_BY.RELEASE_DATE
-        }
-    }
 
     onSortByReleaseDateClick() {
-        this.setState({
-            sortBy: SORT_BY.RELEASE_DATE
-        }, function() {
-            this.props.onSearch(this.state)
-        });
+        this.props.setSortBy(SORT_BY.RELEASE_DATE);
+        this.props.getItems();
     }
 
     onSortByRatingClick() {
-        this.setState({
-            sortBy: SORT_BY.RATING
-        }, function() {
-            this.props.onSearch(this.state)
-        });
+        this.props.setSortBy(SORT_BY.RATING);
+        this.props.getItems();
     }
 
     render() {
-        let output = {};
         const {
             appState,
             items,
-            selectedItem
+            item,
+            total,
+            sortBy,
         } = this.props;
+        let output = {};
 
         switch (appState) {
             case APP_STATES.SEARCH_PAGE:
@@ -79,20 +69,20 @@ class InfoBar extends React.Component {
                         {items && items.length > 0 &&
                         <InfoBarWrapper>
                             <InfoBarLabel>
-                                {items.length} movies found
+                                {total} movies found
                             </InfoBarLabel>
                             <div>
                                 <InfoBarLabel>
                                     Sort by
                                 </InfoBarLabel>
                                 <InfoBarSortByLink
-                                    className={this.state.sortBy === SORT_BY.RELEASE_DATE && 'active'}
+                                    className={sortBy === SORT_BY.RELEASE_DATE && 'active'}
                                     onClick={this.onSortByReleaseDateClick.bind(this)}
                                 >
                                     release date
                                 </InfoBarSortByLink>
                                 <InfoBarSortByLink
-                                    className={this.state.sortBy === SORT_BY.RATING && 'active'}
+                                    className={sortBy === SORT_BY.RATING && 'active'}
                                     onClick={this.onSortByRatingClick.bind(this)}
                                 >
                                     rating
@@ -104,13 +94,12 @@ class InfoBar extends React.Component {
                 );
                 break;
             case APP_STATES.DETAILS_PAGE:
-                const item = items.find((item) => item.id === selectedItem);
                 output = (
                     <InfoBarSection>
                         {items && items.length > 0 &&
                         <InfoBarWrapper>
                             <InfoBarLabel>
-                                Films by {item && item.genres[0]}
+                                Films by {item && item.genres && item.genres[0]}
                             </InfoBarLabel>
                         </InfoBarWrapper>
                         }
@@ -128,13 +117,18 @@ class InfoBar extends React.Component {
 InfoBar.propTypes = {
     appState: PropTypes.string,
     items: PropTypes.array,
-    selectedItem: PropTypes.number
+    item: PropTypes.object,
+    total: PropTypes.number,
+    sortBy: PropTypes.string,
+    setSortBy: PropTypes.func,
 };
 
 InfoBar.defaultProps = {
     appState: APP_STATES.SEARCH_PAGE,
     items: [],
-    selectedItem: null
+    item: {},
+    total: 0,
+    setSortBy: null,
 };
 
 export default InfoBar;

@@ -5,7 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Details
-    goToSearchPage={[MockFunction]}
+    getItems={[MockFunction]}
     item={Object {}}
     overview=""
     poster_path=""
@@ -29,7 +29,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Details__DetailsSearchButton
-          onClick={[Function]}
+          onClick={[MockFunction]}
         >
           search
         </Details__DetailsSearchButton>,
@@ -59,7 +59,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": "search",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": "search",
@@ -190,7 +190,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Details__DetailsSearchButton
-            onClick={[Function]}
+            onClick={[MockFunction]}
           >
             search
           </Details__DetailsSearchButton>,
@@ -220,7 +220,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": "search",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
           "ref": null,
           "rendered": "search",

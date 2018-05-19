@@ -4,15 +4,22 @@ import { shallow } from 'enzyme';
 import Item from 'components/Item';
 
 describe('Item', () => {
-    const mockOnItemClick = jest.fn();
-    const item = shallow(<Item onItemClick={mockOnItemClick} />);
+    const mockGetItem = jest.fn();
+    const mockGetItemsByGenre = jest.fn();
+    const item = shallow(
+        <Item
+            getItem={mockGetItem}
+            getItemsByGenre={mockGetItemsByGenre}
+        />
+    );
 
     it('should be like snapshot', () => {
         expect(item).toMatchSnapshot();
     });
 
-    it('should call onItemClick function on ItemImage click', () => {
+    it('should call getItem function on ItemImage click', () => {
         item.find('Item__ItemImage').simulate('click');
-        expect(mockOnItemClick.mock.calls.length).toBe(1);
+        expect(mockGetItem.mock.calls.length).toBe(1);
+        expect(mockGetItemsByGenre.mock.calls.length).toBe(1);
     });
 });
