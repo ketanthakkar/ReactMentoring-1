@@ -6,8 +6,6 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
     appState="details page"
-    getItems={null}
-    items={Array []}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -24,26 +22,18 @@ ShallowWrapper {
       "children": Array [
         <Header__HeaderWrapper>
           <Logo />
-          <Details
-            getItems={null}
-            item={Object {}}
-            overview=""
-            poster_path=""
-            release_date=""
-            runtime={null}
-            tagline=""
-            title=""
-            vote_average={0}
-          />
+          <Switch>
+            <Route
+              component={[Function]}
+              path="/film/:id"
+            />
+            <Route
+              component={[Function]}
+              path="/"
+            />
+          </Switch>
         </Header__HeaderWrapper>,
-        <InfoBar
-          appState="details page"
-          getItems={null}
-          item={Object {}}
-          items={Array []}
-          setSortBy={null}
-          total={0}
-        />,
+        <Connect(InfoBar) />,
       ],
     },
     "ref": null,
@@ -55,17 +45,16 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Logo />,
-            <Details
-              getItems={null}
-              item={Object {}}
-              overview=""
-              poster_path=""
-              release_date=""
-              runtime={null}
-              tagline=""
-              title=""
-              vote_average={0}
-            />,
+            <Switch>
+              <Route
+                component={[Function]}
+                path="/film/:id"
+              />
+              <Route
+                component={[Function]}
+                path="/"
+              />
+            </Switch>,
           ],
         },
         "ref": null,
@@ -84,18 +73,44 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "getItems": null,
-              "item": Object {},
-              "overview": "",
-              "poster_path": "",
-              "release_date": "",
-              "runtime": null,
-              "tagline": "",
-              "title": "",
-              "vote_average": 0,
+              "children": Array [
+                <Route
+                  component={[Function]}
+                  path="/film/:id"
+                />,
+                <Route
+                  component={[Function]}
+                  path="/"
+                />,
+              ],
             },
             "ref": null,
-            "rendered": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "path": "/film/:id",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "path": "/",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
             "type": [Function],
           },
         ],
@@ -105,14 +120,7 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
-        "props": Object {
-          "appState": "details page",
-          "getItems": null,
-          "item": Object {},
-          "items": Array [],
-          "setSortBy": null,
-          "total": 0,
-        },
+        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -129,26 +137,18 @@ ShallowWrapper {
         "children": Array [
           <Header__HeaderWrapper>
             <Logo />
-            <Details
-              getItems={null}
-              item={Object {}}
-              overview=""
-              poster_path=""
-              release_date=""
-              runtime={null}
-              tagline=""
-              title=""
-              vote_average={0}
-            />
+            <Switch>
+              <Route
+                component={[Function]}
+                path="/film/:id"
+              />
+              <Route
+                component={[Function]}
+                path="/"
+              />
+            </Switch>
           </Header__HeaderWrapper>,
-          <InfoBar
-            appState="details page"
-            getItems={null}
-            item={Object {}}
-            items={Array []}
-            setSortBy={null}
-            total={0}
-          />,
+          <Connect(InfoBar) />,
         ],
       },
       "ref": null,
@@ -160,17 +160,16 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <Logo />,
-              <Details
-                getItems={null}
-                item={Object {}}
-                overview=""
-                poster_path=""
-                release_date=""
-                runtime={null}
-                tagline=""
-                title=""
-                vote_average={0}
-              />,
+              <Switch>
+                <Route
+                  component={[Function]}
+                  path="/film/:id"
+                />
+                <Route
+                  component={[Function]}
+                  path="/"
+                />
+              </Switch>,
             ],
           },
           "ref": null,
@@ -189,18 +188,44 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "getItems": null,
-                "item": Object {},
-                "overview": "",
-                "poster_path": "",
-                "release_date": "",
-                "runtime": null,
-                "tagline": "",
-                "title": "",
-                "vote_average": 0,
+                "children": Array [
+                  <Route
+                    component={[Function]}
+                    path="/film/:id"
+                  />,
+                  <Route
+                    component={[Function]}
+                    path="/"
+                  />,
+                ],
               },
               "ref": null,
-              "rendered": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "path": "/film/:id",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "path": "/",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
               "type": [Function],
             },
           ],
@@ -210,14 +235,7 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
-          "props": Object {
-            "appState": "details page",
-            "getItems": null,
-            "item": Object {},
-            "items": Array [],
-            "setSortBy": null,
-            "total": 0,
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -242,8 +260,6 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
     appState="search page"
-    getItems={null}
-    items={Array []}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -260,23 +276,18 @@ ShallowWrapper {
       "children": Array [
         <Header__HeaderWrapper>
           <Logo />
-          <SearchField
-            appState="search page"
-            getItems={null}
-            items={Array []}
-            searchBy="title"
-            setSearchBy={null}
-            value=""
-          />
+          <Switch>
+            <Route
+              component={[Function]}
+              path="/film/:id"
+            />
+            <Route
+              component={[Function]}
+              path="/"
+            />
+          </Switch>
         </Header__HeaderWrapper>,
-        <InfoBar
-          appState="search page"
-          getItems={null}
-          item={Object {}}
-          items={Array []}
-          setSortBy={null}
-          total={0}
-        />,
+        <Connect(InfoBar) />,
       ],
     },
     "ref": null,
@@ -288,14 +299,16 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Logo />,
-            <SearchField
-              appState="search page"
-              getItems={null}
-              items={Array []}
-              searchBy="title"
-              setSearchBy={null}
-              value=""
-            />,
+            <Switch>
+              <Route
+                component={[Function]}
+                path="/film/:id"
+              />
+              <Route
+                component={[Function]}
+                path="/"
+              />
+            </Switch>,
           ],
         },
         "ref": null,
@@ -314,15 +327,44 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "appState": "search page",
-              "getItems": null,
-              "items": Array [],
-              "searchBy": "title",
-              "setSearchBy": null,
-              "value": "",
+              "children": Array [
+                <Route
+                  component={[Function]}
+                  path="/film/:id"
+                />,
+                <Route
+                  component={[Function]}
+                  path="/"
+                />,
+              ],
             },
             "ref": null,
-            "rendered": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "path": "/film/:id",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "path": "/",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
             "type": [Function],
           },
         ],
@@ -332,14 +374,7 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
-        "props": Object {
-          "appState": "search page",
-          "getItems": null,
-          "item": Object {},
-          "items": Array [],
-          "setSortBy": null,
-          "total": 0,
-        },
+        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -356,23 +391,18 @@ ShallowWrapper {
         "children": Array [
           <Header__HeaderWrapper>
             <Logo />
-            <SearchField
-              appState="search page"
-              getItems={null}
-              items={Array []}
-              searchBy="title"
-              setSearchBy={null}
-              value=""
-            />
+            <Switch>
+              <Route
+                component={[Function]}
+                path="/film/:id"
+              />
+              <Route
+                component={[Function]}
+                path="/"
+              />
+            </Switch>
           </Header__HeaderWrapper>,
-          <InfoBar
-            appState="search page"
-            getItems={null}
-            item={Object {}}
-            items={Array []}
-            setSortBy={null}
-            total={0}
-          />,
+          <Connect(InfoBar) />,
         ],
       },
       "ref": null,
@@ -384,14 +414,16 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <Logo />,
-              <SearchField
-                appState="search page"
-                getItems={null}
-                items={Array []}
-                searchBy="title"
-                setSearchBy={null}
-                value=""
-              />,
+              <Switch>
+                <Route
+                  component={[Function]}
+                  path="/film/:id"
+                />
+                <Route
+                  component={[Function]}
+                  path="/"
+                />
+              </Switch>,
             ],
           },
           "ref": null,
@@ -410,15 +442,44 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "appState": "search page",
-                "getItems": null,
-                "items": Array [],
-                "searchBy": "title",
-                "setSearchBy": null,
-                "value": "",
+                "children": Array [
+                  <Route
+                    component={[Function]}
+                    path="/film/:id"
+                  />,
+                  <Route
+                    component={[Function]}
+                    path="/"
+                  />,
+                ],
               },
               "ref": null,
-              "rendered": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "path": "/film/:id",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "path": "/",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
               "type": [Function],
             },
           ],
@@ -428,14 +489,7 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
-          "props": Object {
-            "appState": "search page",
-            "getItems": null,
-            "item": Object {},
-            "items": Array [],
-            "setSortBy": null,
-            "total": 0,
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],

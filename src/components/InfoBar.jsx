@@ -1,9 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {Route, Switch, Link} from 'react-router-dom';
 
-import APP_STATES from '../constants/APP_STATES';
 import SORT_BY from '../constants/SORT_BY';
+import {setSortBy} from '../actions/appActions';
 
 const InfoBarSection = styled.div`
     display: block;
@@ -40,95 +42,121 @@ const InfoBarSortByLink = styled.span`
     }
 `;
 
-class InfoBar extends React.Component {
-
+export class InfoBar extends React.Component {
     onSortByReleaseDateClick() {
         this.props.setSortBy(SORT_BY.RELEASE_DATE);
-        this.props.getItems();
     }
 
     onSortByRatingClick() {
         this.props.setSortBy(SORT_BY.RATING);
-        this.props.getItems();
     }
 
     render() {
         const {
-            appState,
+            value,
             items,
             item,
             total,
             sortBy,
+            searchBy,
         } = this.props;
-        let output = {};
 
-        switch (appState) {
-            case APP_STATES.SEARCH_PAGE:
-                output = (
-                    <InfoBarSection>
-                        {items && items.length > 0 &&
-                        <InfoBarWrapper>
-                            <InfoBarLabel>
-                                {total} movies found
-                            </InfoBarLabel>
-                            <div>
-                                <InfoBarLabel>
-                                    Sort by
-                                </InfoBarLabel>
-                                <InfoBarSortByLink
-                                    className={sortBy === SORT_BY.RELEASE_DATE && 'active'}
-                                    onClick={this.onSortByReleaseDateClick.bind(this)}
-                                >
-                                    release date
-                                </InfoBarSortByLink>
-                                <InfoBarSortByLink
-                                    className={sortBy === SORT_BY.RATING && 'active'}
-                                    onClick={this.onSortByRatingClick.bind(this)}
-                                >
-                                    rating
-                                </InfoBarSortByLink>
-                            </div>
-                        </InfoBarWrapper>
-                        }
-                    </InfoBarSection>
-                );
-                break;
-            case APP_STATES.DETAILS_PAGE:
-                output = (
-                    <InfoBarSection>
-                        {items && items.length > 0 &&
-                        <InfoBarWrapper>
-                            <InfoBarLabel>
-                                Films by {item && item.genres && item.genres[0]}
-                            </InfoBarLabel>
-                        </InfoBarWrapper>
-                        }
-                    </InfoBarSection>
-                );
-                break;
-            default:
-        }
         return (
-            output
+            <Switch>
+                <Route path='/film'
+                       render={() => (
+                           <InfoBarSection>
+                               {items && items.length > 0 &&
+                               <InfoBarWrapper>
+                                   <InfoBarLabel>
+                                       Films by {item && item.genres && item.genres[0]}
+                                   </InfoBarLabel>
+                               </InfoBarWrapper>
+                               }
+                           </InfoBarSection>
+                       )}
+                />
+                <Route
+                    path='/'
+                    render={() => (
+                        <InfoBarSection>
+                            {items && items.length > 0 &&
+                            <InfoBarWrapper>
+                                <InfoBarLabel>
+                                    {total} movies found
+                                </InfoBarLabel>
+                                <div>
+                                    <InfoBarLabel>
+                                        Sort by
+                                    </InfoBarLabel>
+                                    <Link
+                                        to={`/search?search=${value}&searchBy=${searchBy}&sortBy=${SORT_BY.RELEASE_DATE}`}>
+                                        <InfoBarSortByLink
+                                            className={sortBy === SORT_BY.RELEASE_DATE && 'active'}
+                                            onClick={this.onSortByReleaseDateClick.bind(this)}
+                                        >
+                                            release date
+                                        </InfoBarSortByLink>
+                                    </Link>
+                                    <Link
+                                        to={`/search?search=${value}&searchBy=${searchBy}&sortBy=${SORT_BY.RATING}`}>
+                                        <InfoBarSortByLink
+                                            className={sortBy === SORT_BY.RATING && 'active'}
+                                            onClick={this.onSortByRatingClick.bind(this)}
+                                        >
+                                            rating
+                                        </InfoBarSortByLink>
+                                    </Link>
+                                </div>
+                            </InfoBarWrapper>
+                            }
+                        </InfoBarSection>)}
+                />
+            </Switch>
         )
     }
 }
 
 InfoBar.propTypes = {
-    appState: PropTypes.string,
+    value: PropTypes.string,
     items: PropTypes.array,
     item: PropTypes.object,
     total: PropTypes.number,
     sortBy: PropTypes.string,
+    searchBy: PropTypes.string,
     setSortBy: PropTypes.func,
 };
 
 InfoBar.defaultProps = {
-    appState: APP_STATES.SEARCH_PAGE,
+    value: '',
     items: [],
     item: {},
     total: 0,
+    sortBy: '',
+    searchBy: '',
     setSortBy: null,
 };
 
-export default InfoBar;
+const mapStateToProps = (state) => {
+    const {
+        value,
+        items,
+        item,
+        total,
+        sortBy,
+        searchBy,
+    } = state.appReducer;
+
+    return {
+        value,
+        items,
+        item,
+        total,
+        sortBy,
+        searchBy,
+    };
+};
+
+export default connect(mapStateToProps,{
+    setSortBy,
+})(InfoBar);

@@ -5,13 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
-    getItems={
-      [MockFunction] {
-        "calls": Array [
-          Array [],
-        ],
-      }
-    }
+    getItems={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -27,28 +21,10 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <ErrorBoundary>
-          <Header
-            appState=""
-            getItems={
-              [MockFunction] {
-                "calls": Array [
-                  Array [],
-                ],
-              }
-            }
-            items={Array []}
-          />
+          <Header />
         </ErrorBoundary>,
         <ErrorBoundary>
-          <Items
-            getItems={
-              [MockFunction] {
-                "calls": Array [
-                  Array [],
-                ],
-              }
-            }
-          />
+          <Connect(Items) />
         </ErrorBoundary>,
         <ErrorBoundary>
           <Footer />
@@ -62,32 +38,14 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": <Header
-            appState=""
-            getItems={
-              [MockFunction] {
-                "calls": Array [
-                  Array [],
-                ],
-              }
-            }
-            items={Array []}
-          />,
+          "children": <Header />,
         },
         "ref": null,
         "rendered": Object {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
-          "props": Object {
-            "appState": "",
-            "getItems": [MockFunction] {
-              "calls": Array [
-                Array [],
-              ],
-            },
-            "items": Array [],
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -99,28 +57,14 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": <Items
-            getItems={
-              [MockFunction] {
-                "calls": Array [
-                  Array [],
-                ],
-              }
-            }
-          />,
+          "children": <Connect(Items) />,
         },
         "ref": null,
         "rendered": Object {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
-          "props": Object {
-            "getItems": [MockFunction] {
-              "calls": Array [
-                Array [],
-              ],
-            },
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -157,28 +101,10 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <ErrorBoundary>
-            <Header
-              appState=""
-              getItems={
-                [MockFunction] {
-                  "calls": Array [
-                    Array [],
-                  ],
-                }
-              }
-              items={Array []}
-            />
+            <Header />
           </ErrorBoundary>,
           <ErrorBoundary>
-            <Items
-              getItems={
-                [MockFunction] {
-                  "calls": Array [
-                    Array [],
-                  ],
-                }
-              }
-            />
+            <Connect(Items) />
           </ErrorBoundary>,
           <ErrorBoundary>
             <Footer />
@@ -192,32 +118,14 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <Header
-              appState=""
-              getItems={
-                [MockFunction] {
-                  "calls": Array [
-                    Array [],
-                  ],
-                }
-              }
-              items={Array []}
-            />,
+            "children": <Header />,
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
             "nodeType": "class",
-            "props": Object {
-              "appState": "",
-              "getItems": [MockFunction] {
-                "calls": Array [
-                  Array [],
-                ],
-              },
-              "items": Array [],
-            },
+            "props": Object {},
             "ref": null,
             "rendered": null,
             "type": [Function],
@@ -229,28 +137,14 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <Items
-              getItems={
-                [MockFunction] {
-                  "calls": Array [
-                    Array [],
-                  ],
-                }
-              }
-            />,
+            "children": <Connect(Items) />,
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
             "nodeType": "class",
-            "props": Object {
-              "getItems": [MockFunction] {
-                "calls": Array [
-                  Array [],
-                ],
-              },
-            },
+            "props": Object {},
             "ref": null,
             "rendered": null,
             "type": [Function],

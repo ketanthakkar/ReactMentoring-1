@@ -5,15 +5,26 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Details
-    getItems={[MockFunction]}
+    getItem={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "",
+          ],
+        ],
+      }
+    }
     item={Object {}}
-    overview=""
-    poster_path=""
-    release_date=""
-    runtime={null}
-    tagline=""
-    title=""
-    vote_average={0}
+    match={
+      Object {
+        "params": Object {
+          "id": "",
+        },
+      }
+    }
+    searchBy=""
+    sortBy=""
+    value=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -28,11 +39,14 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <Details__DetailsSearchButton
-          onClick={[MockFunction]}
+        <Link
+          replace={false}
+          to="/search?search=&searchBy=&sortBy="
         >
-          search
-        </Details__DetailsSearchButton>,
+          <Details__DetailsSearchButton>
+            search
+          </Details__DetailsSearchButton>
+        </Link>,
         <Details__DetailsImage
           src={undefined}
         />,
@@ -58,11 +72,24 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": "search",
-          "onClick": [MockFunction],
+          "children": <Details__DetailsSearchButton>
+            search
+          </Details__DetailsSearchButton>,
+          "replace": false,
+          "to": "/search?search=&searchBy=&sortBy=",
         },
         "ref": null,
-        "rendered": "search",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "search",
+          },
+          "ref": null,
+          "rendered": "search",
+          "type": [Function],
+        },
         "type": [Function],
       },
       Object {
@@ -189,11 +216,14 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <Details__DetailsSearchButton
-            onClick={[MockFunction]}
+          <Link
+            replace={false}
+            to="/search?search=&searchBy=&sortBy="
           >
-            search
-          </Details__DetailsSearchButton>,
+            <Details__DetailsSearchButton>
+              search
+            </Details__DetailsSearchButton>
+          </Link>,
           <Details__DetailsImage
             src={undefined}
           />,
@@ -219,11 +249,24 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": "search",
-            "onClick": [MockFunction],
+            "children": <Details__DetailsSearchButton>
+              search
+            </Details__DetailsSearchButton>,
+            "replace": false,
+            "to": "/search?search=&searchBy=&sortBy=",
           },
           "ref": null,
-          "rendered": "search",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "search",
+            },
+            "ref": null,
+            "rendered": "search",
+            "type": [Function],
+          },
           "type": [Function],
         },
         Object {

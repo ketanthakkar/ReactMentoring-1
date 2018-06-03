@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const ItemWrapper = styled.div`
     width: 250px;
@@ -40,36 +41,25 @@ const ItemGenres = styled.div`
 `;
 
 class Item extends React.Component {
-    onItemClick() {
-        const {
-            item,
-            getItem,
-            getItemsByGenre,
-        } = this.props;
-        const searchValue = item.genres && item.genres[0];
-
-        getItem(item.id);
-        getItemsByGenre(searchValue);
-    }
-
     render() {
         const {
-            item
+            item,
         } = this.props;
 
         const {
             poster_path,
             title,
             release_date,
-            genres
+            genres,
         } = item;
 
         return (
             <ItemWrapper>
-                <ItemImage
-                    src={poster_path}
-                    onClick={this.onItemClick.bind(this)}
-                />
+                <Link to={`/film/${item.id}`}>
+                    <ItemImage
+                        src={poster_path}
+                    />
+                </Link>
                 <ItemInfo>
                     <ItemTitle>{title}</ItemTitle>
                     <ItemDate>{release_date && release_date.slice(0, release_date.indexOf('-'))}</ItemDate>
@@ -82,22 +72,10 @@ class Item extends React.Component {
 
 Item.propTypes = {
     item: PropTypes.object,
-    poster_path: PropTypes.string,
-    title: PropTypes.string,
-    release_date: PropTypes.string,
-    genres: PropTypes.array,
-    getItem: PropTypes.func,
-    getItemsByGenre: PropTypes.func,
 };
 
 Item.defaultProps = {
     item: {},
-    poster_path: '',
-    title: '',
-    release_date: '',
-    genres: [],
-    getItem: null,
-    getItemsByGenre: null,
 };
 
 export default Item;

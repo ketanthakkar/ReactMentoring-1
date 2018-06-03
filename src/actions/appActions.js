@@ -4,21 +4,23 @@ import ACTION_TYPES from '../constants/ACTION_TYPES';
 import SEARCH_BY from '../constants/SEARCH_BY';
 import API from '../constants/API';
 
-export const getItems = () => async (dispatch, getState) => {
-    const state = getState().appReducer;
-    const {value, searchBy, sortBy} = state;
-    const url = `${API.MOVIES_URL}?search=${value}&searchBy=${searchBy}&sortBy=${sortBy}`;
+export const getItems = (value, searchBy, sortBy) => async (dispatch) => {
+    const url = `${API.MOVIES_URL}?search=${value}&searchBy=${searchBy}&sortBy=${sortBy}&sortOrder=desc&limit=12`;
     const {data} = await callApi(url);
     dispatch(getItemsSuccess(data));
 };
 
 export const getItem = (id) => async (dispatch) => {
-    const {data} = await callApi(`${API.MOVIES_URL}/${id}`);
-    dispatch(getItemSuccess(data));
+    if (id) {
+        const {data} = await callApi(`${API.MOVIES_URL}/${id}`);
+        const searchValue = data.genres && data.genres[0];
+        dispatch(getItemSuccess(data));
+        dispatch(getItemsByGenre(searchValue));
+    }
 };
 
 export const getItemsByGenre = (value) => async (dispatch) => {
-    const url = `${API.MOVIES_URL}?search=${value}&searchBy=${SEARCH_BY.GENRE}`;
+    const url = `${API.MOVIES_URL}?search=${value}&searchBy=${SEARCH_BY.GENRE}&sortOrder=desc&limit=12`;
     const {data} = await callApi(url);
     dispatch(getItemsByGenreSuccess(data));
 };

@@ -1,6 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+
+import {getItem} from '../actions/appActions';
 
 const DetailsWrapper = styled.div`
     display: flex;
@@ -83,11 +87,27 @@ const DetailsOverview = styled.div`
     margin: 20px 0;
 `;
 
-class Details extends React.Component {
+export class Details extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        this.props.getItem(this.props.match.params.id);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.props.getItem(this.props.match.params.id);
+        }
+    }
+
     render() {
         const {
+            value,
+            searchBy,
+            sortBy,
             item,
-            getItems,
         } = this.props;
 
         const {
@@ -102,9 +122,11 @@ class Details extends React.Component {
 
         return (
             <DetailsWrapper>
-                <DetailsSearchButton onClick={getItems}>
-                    search
-                </DetailsSearchButton>
+                <Link to={`/search?search=${value}&searchBy=${searchBy}&sortBy=${sortBy}`}>
+                    <DetailsSearchButton>
+                        search
+                    </DetailsSearchButton>
+                </Link>
                 <DetailsImage
                     src={poster_path}
                 />
@@ -133,27 +155,39 @@ class Details extends React.Component {
 }
 
 Details.propTypes = {
+    value: PropTypes.string,
+    searchBy: PropTypes.string,
+    sortBy: PropTypes.string,
     item: PropTypes.object,
-    getItems: PropTypes.func,
-    poster_path: PropTypes.string,
-    title: PropTypes.string,
-    vote_average: PropTypes.number,
-    tagline: PropTypes.string,
-    release_date: PropTypes.string,
-    runtime: PropTypes.number,
-    overview: PropTypes.string,
+    getItem: PropTypes.func,
+    match: PropTypes.object,
 };
 
 Details.defaultProps = {
+    value: '',
+    searchBy: '',
+    sortBy: '',
     item: {},
-    getItems: null,
-    poster_path: '',
-    title: '',
-    vote_average: 0,
-    tagline: '',
-    release_date: '',
-    runtime: null,
-    overview: '',
+    getItem: null,
+    match: {params: {id: ''}},
 };
 
-export default Details;
+const mapStateToProps = (state) => {
+    const {
+        value,
+        searchBy,
+        sortBy,
+        item,
+    } = state.appReducer;
+
+    return {
+        value,
+        searchBy,
+        sortBy,
+        item,
+    };
+};
+
+export default connect(mapStateToProps, {
+    getItem,
+})(Details);
