@@ -14,7 +14,7 @@ module.exports = env => {
         devtool: isProduction ? "none" : "source-map",
 
         resolve: {
-            extensions: [".js"]
+            extensions: [".js", ".jsx"]
         },
 
         module: {
@@ -23,6 +23,17 @@ module.exports = env => {
                     test: /\.(js|jsx)$/,
                     loader: "babel-loader",
                     exclude: /node_modules/
+                },
+                {
+                    test: /\.(ttf|eot|svg|woff|png|jpg)$/,
+                    loader: "file-loader",
+                    options: {
+                        name: "[path][name].[ext]?[hash]"
+                    }
+                },
+                {
+                    test: /\.css$/,
+                    use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
                 }
             ]
         },
