@@ -35,6 +35,7 @@ class Header extends React.Component {
             items,
             goToSearchPage
         } = this.props;
+
         return (
             <HeaderSection>
                 <HeaderWrapper>

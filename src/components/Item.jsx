@@ -72,9 +72,9 @@ class Item extends React.Component {
                 />
                 <ItemInfo>
                     <ItemTitle>{title}</ItemTitle>
-                    <ItemDate>{release_date.slice(0, release_date.indexOf('-'))}</ItemDate>
+                    <ItemDate>{release_date && release_date.slice(0, release_date.indexOf('-'))}</ItemDate>
                 </ItemInfo>
-                <ItemGenres>{genres.join(' & ')}</ItemGenres>
+                <ItemGenres>{genres && genres.join(' & ')}</ItemGenres>
             </ItemWrapper>
         )
     }

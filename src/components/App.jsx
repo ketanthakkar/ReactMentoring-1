@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Header from './components/Header';
-import Items from './components/Items';
-import Footer from './components/Footer';
-import ErrorBoundary from './components/ErrorBoundary';
+import Header from './Header';
+import Items from './Items';
+import Footer from './Footer';
+import ErrorBoundary from './ErrorBoundary';
 
-import items from './mock-data/items.json';
+import items from '../mock-data/items.json';
 
-import APP_STATES from './constants/APP_STATES';
-import SEARCH_BY from './constants/SEARCH_BY';
-import SORT_BY from './constants/SORT_BY';
+import APP_STATES from '../constants/APP_STATES';
+import SEARCH_BY from '../constants/SEARCH_BY';
+import SORT_BY from '../constants/SORT_BY';
 
 const AppWrapper = styled.div`
     height: 100%;

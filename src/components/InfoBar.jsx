@@ -104,12 +104,13 @@ class InfoBar extends React.Component {
                 );
                 break;
             case APP_STATES.DETAILS_PAGE:
+                const item = items.find((item) => item.id === selectedItem);
                 output = (
                     <InfoBarSection>
                         {items && items.length > 0 &&
                         <InfoBarWrapper>
                             <InfoBarLabel>
-                                Films by {items.find((item) => item.id === selectedItem).genres[0]}
+                                Films by {item && item.genres[0]}
                             </InfoBarLabel>
                         </InfoBarWrapper>
                         }
