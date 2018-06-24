@@ -1,28 +1,16 @@
 import {createStore, applyMiddleware} from 'redux';
-import {persistStore, persistReducer} from 'redux-persist';
-import thunkMiddleware from 'redux-thunk';
-import storage from 'redux-persist/lib/storage';
+import createSagaMiddleware, { END } from 'redux-saga';
+import rootReducer from '../reducers';
+import appSaga from '../sagas/appSagas';
 
-import reducer from '../reducers';
+const sagaMiddleware = createSagaMiddleware();
 
-const persistConfig = {
-    key: 'root',
-    storage,
-};
-
-const persistedReducer = persistReducer(persistConfig, reducer);
-
-const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
+const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
 
 export default function configureStore(initialState) {
-    let store = createStoreWithMiddleware(persistedReducer, initialState);
-    let persistor = persistStore(store);
+    let store = createStoreWithMiddleware(rootReducer, initialState);
+    store.runSaga = () => sagaMiddleware.run(appSaga);
+    store.close = () => store.dispatch(END);
 
-    if (module.hot) {
-        module.hot.accept('../reducers', () => {
-            store.replaceReducer(persistReducer(persistConfig, reducer));
-        });
-    }
-
-    return {store, persistor}
-}
+    return store;
+};

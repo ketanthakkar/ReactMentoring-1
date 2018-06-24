@@ -1,11 +1,8 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Logo from './Logo';
-import SearchField from './SearchField';
 import InfoBar from './InfoBar';
-import Details from './Details';
 
 import background from '../img/background.jpg';
 
@@ -27,10 +24,7 @@ export class Header extends React.Component {
             <HeaderSection>
                 <HeaderWrapper>
                     <Logo/>
-                    <Switch>
-                        <Route path="/film/:id" component={Details}/>
-                        <Route path="/" component={SearchField}/>
-                    </Switch>
+                    {this.props.children}
                 </HeaderWrapper>
                 <InfoBar/>
             </HeaderSection>

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Item from './Item';
-import EmptyState from './EmptyState';
 
 const ItemsSection = styled.div`
     background-color: #fff;
@@ -36,9 +35,7 @@ export class Items extends React.Component {
                                 />
                             )
                         )
-                    ) : (
-                        <EmptyState/>
-                    )}
+                    ) : this.props.children }
                 </ItemsWrapper>
             </ItemsSection>
         )

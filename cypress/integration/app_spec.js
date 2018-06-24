@@ -1,6 +1,6 @@
 describe('App', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:8085');
+        cy.visit('http://localhost:8086');
     });
 
     it('assert that <title> is correct', () => {
