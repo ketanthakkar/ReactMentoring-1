@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -78,8 +80,33 @@ const SearchButton = styled.button`
     }
 `;
 
-export class SearchField extends React.Component {
-    constructor(props) {
+type Props = {
+    value: string,
+    searchBy: string,
+    sortBy: string,
+    getItems: Function,
+    setSearchBy: Function,
+    setSearchValue: Function,
+    location: Object,
+    history: any,
+};
+
+type State = {
+    value: string,
+}
+
+export class SearchField extends React.Component<Props, State> {
+    static defaultProps = {
+        value: '',
+        searchBy: SEARCH_BY.TITLE,
+        sortBy: '',
+        getItems: function () {},
+        setSearchBy: null,
+        setSearchValue: null,
+        location: {},
+    };
+
+    constructor(props: Props) {
         super(props);
         this.state = {
             value: this.props.value,
@@ -91,7 +118,7 @@ export class SearchField extends React.Component {
         this._getItems(params);
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps: Props) {
         console.log("update");
         const params = new URLSearchParams(this.props.location.search);
         if (prevProps.location.search !== this.props.location.search) {
@@ -99,16 +126,16 @@ export class SearchField extends React.Component {
         }
     }
 
-    _getItems(params) {
+    _getItems(params: URLSearchParams<*>) {
         const value = params.get('search') || this.props.value;
         const searchBy = params.get('searchBy') || this.props.searchBy;
         const sortBy = params.get('sortBy') || this.props.sortBy;
         this.props.getItems(value, searchBy, sortBy);
     }
 
-    onChange(event) {
+    onChange(event: SyntheticInputEvent<*>) {
         this.setState({
-            value: event.target.value
+            value: event.currentTarget.value
         })
     }
 
@@ -116,8 +143,8 @@ export class SearchField extends React.Component {
         this.props.setSearchValue(this.state.value);
     }
 
-    onEnter(event) {
-        const isEnterPressed = event.which === ENTER_KEY || event.keyCode === ENTER_KEY;
+    onEnter({which, keyCode}: SyntheticKeyboardEvent<*>) {
+        const isEnterPressed = which === ENTER_KEY || keyCode === ENTER_KEY;
         if (isEnterPressed) {
             const {
                 searchBy,
@@ -177,26 +204,6 @@ export class SearchField extends React.Component {
         )
     }
 }
-
-SearchField.propTypes = {
-    value: PropTypes.string,
-    searchBy: PropTypes.string,
-    sortBy: PropTypes.string,
-    getItems: PropTypes.func,
-    setSearchBy: PropTypes.func,
-    setSearchValue: PropTypes.func,
-    location: PropTypes.object,
-};
-
-SearchField.defaultProps = {
-    value: '',
-    searchBy: SEARCH_BY.TITLE,
-    sortBy: '',
-    getItems: function () {},
-    setSearchBy: null,
-    setSearchValue: null,
-    location: {},
-};
 
 const mapStateToProps = (state) => {
     const {
