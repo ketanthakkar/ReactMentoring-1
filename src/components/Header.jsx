@@ -24,16 +24,11 @@ const HeaderWrapper = styled.div`
 `;
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {
             appState,
-            selectedItem,
-            items,
-            goToSearchPage
+            item,
+            getItems,
         } = this.props;
 
         return (
@@ -42,8 +37,8 @@ class Header extends React.Component {
                     <Logo/>
                     {appState === APP_STATES.DETAILS_PAGE ?
                         <Details
-                            item={items.find(item => item.id === selectedItem)}
-                            goToSearchPage={goToSearchPage}
+                            item={item}
+                            getItems={getItems}
                         />
                         :
                         <SearchField {...this.props}/>
@@ -57,16 +52,14 @@ class Header extends React.Component {
 
 Header.propTypes = {
     appState: PropTypes.string,
-    selectedItem: PropTypes.number,
     items: PropTypes.array,
-    goToSearchPage: PropTypes.func
+    getItems: PropTypes.func,
 };
 
 Header.defaultProps = {
     appState: '',
-    selectedItem: null,
     items: [],
-    goToSearchPage: null
+    getItems: null,
 };
 
 export default Header;

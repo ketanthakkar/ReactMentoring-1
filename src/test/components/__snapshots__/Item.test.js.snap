@@ -6,8 +6,9 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Item
     genres={Array []}
+    getItem={[MockFunction]}
+    getItemsByGenre={[MockFunction]}
     item={Object {}}
-    onItemClick={[MockFunction]}
     poster_path=""
     release_date=""
     title=""

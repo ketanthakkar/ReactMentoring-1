@@ -84,17 +84,10 @@ const DetailsOverview = styled.div`
 `;
 
 class Details extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-    _goToSearchPage() {
-        this.props.goToSearchPage();
-    }
-
     render() {
         const {
-            item
+            item,
+            getItems,
         } = this.props;
 
         const {
@@ -104,27 +97,35 @@ class Details extends React.Component {
             tagline,
             release_date,
             runtime,
-            overview
+            overview,
         } = item;
 
         return (
             <DetailsWrapper>
-                <DetailsSearchButton onClick={this._goToSearchPage.bind(this)}>
+                <DetailsSearchButton onClick={getItems}>
                     search
                 </DetailsSearchButton>
                 <DetailsImage
                     src={poster_path}
                 />
                 <DetailsDescription>
-                    <DetailsTitle vote_average={vote_average}>{title}</DetailsTitle>
-                    <DetailsTagline>{tagline}</DetailsTagline>
+                    <DetailsTitle vote_average={vote_average}>
+                        {title}
+                    </DetailsTitle>
+                    <DetailsTagline>
+                        {tagline}
+                    </DetailsTagline>
                     <div>
                         <DetailsYear>
                             {release_date && release_date.slice(0, release_date.indexOf('-'))}
                         </DetailsYear>
-                        <DetailsRuntime>{runtime} min</DetailsRuntime>
+                        <DetailsRuntime>
+                            {runtime} min
+                        </DetailsRuntime>
                     </div>
-                    <DetailsOverview>{overview}</DetailsOverview>
+                    <DetailsOverview>
+                        {overview}
+                    </DetailsOverview>
                 </DetailsDescription>
             </DetailsWrapper>
         )
@@ -133,6 +134,7 @@ class Details extends React.Component {
 
 Details.propTypes = {
     item: PropTypes.object,
+    getItems: PropTypes.func,
     poster_path: PropTypes.string,
     title: PropTypes.string,
     vote_average: PropTypes.number,
@@ -140,11 +142,11 @@ Details.propTypes = {
     release_date: PropTypes.string,
     runtime: PropTypes.number,
     overview: PropTypes.string,
-    goToSearchPage: PropTypes.func
 };
 
 Details.defaultProps = {
     item: {},
+    getItems: null,
     poster_path: '',
     title: '',
     vote_average: 0,
@@ -152,7 +154,6 @@ Details.defaultProps = {
     release_date: '',
     runtime: null,
     overview: '',
-    goToSearchPage: null
 };
 
 export default Details;

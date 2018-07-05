@@ -5,7 +5,10 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <SearchField
-    onSearch={[MockFunction]}
+    getItems={[MockFunction]}
+    searchBy="title"
+    setSearchBy={null}
+    value=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -24,6 +27,7 @@ ShallowWrapper {
           find your movie
         </SearchField__SearchFiledLabel>,
         <SearchField__SearchFieldInput
+          onBlur={[Function]}
           onChange={[Function]}
           onKeyPress={[Function]}
           type="text"
@@ -72,6 +76,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "onBlur": [Function],
           "onChange": [Function],
           "onKeyPress": [Function],
           "type": "text",
@@ -179,6 +184,7 @@ ShallowWrapper {
             find your movie
           </SearchField__SearchFiledLabel>,
           <SearchField__SearchFieldInput
+            onBlur={[Function]}
             onChange={[Function]}
             onKeyPress={[Function]}
             type="text"
@@ -227,6 +233,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "onBlur": [Function],
             "onChange": [Function],
             "onKeyPress": [Function],
             "type": "text",

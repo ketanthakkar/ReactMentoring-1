@@ -6,12 +6,14 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <InfoBar
     appState="details page"
+    item={Object {}}
     items={
       Array [
         Object {},
       ]
     }
-    selectedItem={null}
+    setSortBy={null}
+    total={0}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -124,12 +126,14 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <InfoBar
     appState="search page"
+    item={Object {}}
     items={
       Array [
         Object {},
       ]
     }
-    selectedItem={null}
+    setSortBy={null}
+    total={0}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -145,7 +149,7 @@ ShallowWrapper {
     "props": Object {
       "children": <InfoBar__InfoBarWrapper>
         <InfoBar__InfoBarLabel>
-          1
+          0
            movies found
         </InfoBar__InfoBarLabel>
         <div>
@@ -153,7 +157,7 @@ ShallowWrapper {
             Sort by
           </InfoBar__InfoBarLabel>
           <InfoBar__InfoBarSortByLink
-            className="active"
+            className={false}
             onClick={[Function]}
           >
             release date
@@ -175,7 +179,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <InfoBar__InfoBarLabel>
-            1
+            0
              movies found
           </InfoBar__InfoBarLabel>,
           <div>
@@ -183,7 +187,7 @@ ShallowWrapper {
               Sort by
             </InfoBar__InfoBarLabel>
             <InfoBar__InfoBarSortByLink
-              className="active"
+              className={false}
               onClick={[Function]}
             >
               release date
@@ -205,13 +209,13 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              1,
+              0,
               " movies found",
             ],
           },
           "ref": null,
           "rendered": Array [
-            1,
+            0,
             " movies found",
           ],
           "type": [Function],
@@ -226,7 +230,7 @@ ShallowWrapper {
                 Sort by
               </InfoBar__InfoBarLabel>,
               <InfoBar__InfoBarSortByLink
-                className="active"
+                className={false}
                 onClick={[Function]}
               >
                 release date
@@ -258,7 +262,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": "release date",
-                "className": "active",
+                "className": false,
                 "onClick": [Function],
               },
               "ref": null,
@@ -294,7 +298,7 @@ ShallowWrapper {
       "props": Object {
         "children": <InfoBar__InfoBarWrapper>
           <InfoBar__InfoBarLabel>
-            1
+            0
              movies found
           </InfoBar__InfoBarLabel>
           <div>
@@ -302,7 +306,7 @@ ShallowWrapper {
               Sort by
             </InfoBar__InfoBarLabel>
             <InfoBar__InfoBarSortByLink
-              className="active"
+              className={false}
               onClick={[Function]}
             >
               release date
@@ -324,7 +328,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <InfoBar__InfoBarLabel>
-              1
+              0
                movies found
             </InfoBar__InfoBarLabel>,
             <div>
@@ -332,7 +336,7 @@ ShallowWrapper {
                 Sort by
               </InfoBar__InfoBarLabel>
               <InfoBar__InfoBarSortByLink
-                className="active"
+                className={false}
                 onClick={[Function]}
               >
                 release date
@@ -354,13 +358,13 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": Array [
-                1,
+                0,
                 " movies found",
               ],
             },
             "ref": null,
             "rendered": Array [
-              1,
+              0,
               " movies found",
             ],
             "type": [Function],
@@ -375,7 +379,7 @@ ShallowWrapper {
                   Sort by
                 </InfoBar__InfoBarLabel>,
                 <InfoBar__InfoBarSortByLink
-                  className="active"
+                  className={false}
                   onClick={[Function]}
                 >
                   release date
@@ -407,7 +411,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "release date",
-                  "className": "active",
+                  "className": false,
                   "onClick": [Function],
                 },
                 "ref": null,

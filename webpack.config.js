@@ -9,7 +9,7 @@ module.exports = env => {
 
     return {
         context: path.join(__dirname, "src"),
-        entry: "./",
+        entry: ['babel-polyfill', "./"],
         mode: isProduction ? "production" : "development",
         devtool: isProduction ? "none" : "source-map",
 
@@ -69,7 +69,7 @@ module.exports = env => {
         },
 
         output: {
-            filename: "[name].[chunkhash].js",
+            filename: "[name].[hash].js",
             path: path.resolve(__dirname, "dist")
         }
     };

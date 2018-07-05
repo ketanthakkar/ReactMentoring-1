@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import SEARCH_BY from "../constants/SEARCH_BY";
+import SEARCH_BY from '../constants/SEARCH_BY';
 
 const ENTER_KEY = 13;
 
@@ -74,8 +74,7 @@ class SearchField extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
-            searchBy: SEARCH_BY.TITLE
+            value: this.props.value,
         }
     }
 
@@ -85,35 +84,41 @@ class SearchField extends React.Component {
         })
     }
 
+    onBlur() {
+        this.props.setSearchValue(this.state.value);
+    }
+
     onEnter(event) {
         const isEnterPressed = event.which === ENTER_KEY || event.keyCode === ENTER_KEY;
         if (isEnterPressed) {
-            this.props.onSearch(this.state);
+            this.props.setSearchValue(this.state.value);
+            this.props.getItems();
         }
     }
 
+    onSearchClick() {
+        this.props.getItems();
+    }
+
     onSearchByTitleClick() {
-        this.setState({
-            searchBy: SEARCH_BY.TITLE
-        })
+        this.props.setSearchBy(SEARCH_BY.TITLE);
     }
 
     onSearchByGenreClick() {
-        this.setState({
-            searchBy: SEARCH_BY.GENRE
-        })
-    }
-
-    onSearchClick() {
-        this.props.onSearch(this.state);
+        this.props.setSearchBy(SEARCH_BY.GENRE);
     }
 
     render() {
+        const {
+            searchBy,
+        } = this.props;
+
         return (
             <SearchFieldWrapper>
                 <SearchFiledLabel>find your movie</SearchFiledLabel>
                 <SearchFieldInput
                     onChange={this.onChange.bind(this)}
+                    onBlur={this.onBlur.bind(this)}
                     onKeyPress={this.onEnter.bind(this)}
                     type="text"
                     value={this.state.value}
@@ -121,13 +126,13 @@ class SearchField extends React.Component {
                 <div>
                     <SearchFilterLabel>search by</SearchFilterLabel>
                     <SearchFilterButton
-                        className={this.state.searchBy === SEARCH_BY.TITLE && 'active'}
+                        className={searchBy === SEARCH_BY.TITLE && 'active'}
                         onClick={this.onSearchByTitleClick.bind(this)}
                     >
                         title
                     </SearchFilterButton>
                     <SearchFilterButton
-                        className={this.state.searchBy === SEARCH_BY.GENRE && 'active'}
+                        className={searchBy === SEARCH_BY.GENRE && 'active'}
                         onClick={this.onSearchByGenreClick.bind(this)}
                     >
                         genre
@@ -145,11 +150,17 @@ class SearchField extends React.Component {
 }
 
 SearchField.propTypes = {
-    onSearch: PropTypes.func
+    value: PropTypes.string,
+    searchBy: PropTypes.string,
+    getItems: PropTypes.func,
+    setSearchBy: PropTypes.func,
 };
 
 SearchField.defaultProps = {
-    onSearch: null
+    value: '',
+    searchBy: SEARCH_BY.TITLE,
+    getItems: null,
+    setSearchBy: null,
 };
 
 export default SearchField;
