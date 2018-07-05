@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {Route, Switch} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Logo from './Logo';
@@ -8,8 +8,6 @@ import InfoBar from './InfoBar';
 import Details from './Details';
 
 import background from '../img/background.jpg';
-
-import APP_STATES from '../constants/APP_STATES';
 
 const HeaderSection = styled.div`
     width: 100%;
@@ -23,43 +21,21 @@ const HeaderWrapper = styled.div`
     padding-top: 20px;
 `;
 
-class Header extends React.Component {
+export class Header extends React.Component {
     render() {
-        const {
-            appState,
-            item,
-            getItems,
-        } = this.props;
-
         return (
             <HeaderSection>
                 <HeaderWrapper>
                     <Logo/>
-                    {appState === APP_STATES.DETAILS_PAGE ?
-                        <Details
-                            item={item}
-                            getItems={getItems}
-                        />
-                        :
-                        <SearchField {...this.props}/>
-                    }
+                    <Switch>
+                        <Route path="/film/:id" component={Details}/>
+                        <Route path="/" component={SearchField}/>
+                    </Switch>
                 </HeaderWrapper>
-                <InfoBar {...this.props}/>
+                <InfoBar/>
             </HeaderSection>
         )
     }
 }
-
-Header.propTypes = {
-    appState: PropTypes.string,
-    items: PropTypes.array,
-    getItems: PropTypes.func,
-};
-
-Header.defaultProps = {
-    appState: '',
-    items: [],
-    getItems: null,
-};
 
 export default Header;

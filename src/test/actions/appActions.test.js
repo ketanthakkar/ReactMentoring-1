@@ -67,11 +67,12 @@ describe('app actions', () => {
                     headers: {'content-type': 'application/json'}
                 });
 
+            const id = '123';
             const expectedActions = [
                 {type: ACTION_TYPES.GET_ITEM_SUCCESS, data: {data: ['some data']}},
             ];
             const store = mockStore({appReducer: {data: []}});
-            return store.dispatch(actions.getItem()).then(() => {
+            return store.dispatch(actions.getItem(id)).then(() => {
                 expect(store.getActions()).toEqual(expectedActions);
             });
         });

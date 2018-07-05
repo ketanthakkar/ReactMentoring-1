@@ -5,9 +5,12 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <SearchField
-    getItems={[MockFunction]}
+    getItems={[Function]}
+    location={Object {}}
     searchBy="title"
     setSearchBy={null}
+    setSearchValue={null}
+    sortBy=""
     value=""
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -49,12 +52,14 @@ ShallowWrapper {
           >
             genre
           </SearchField__SearchFilterButton>
-          <SearchField__SearchButton
-            onClick={[Function]}
-            type="button"
+          <Link
+            replace={false}
+            to="/search?search=&searchBy=title&sortBy="
           >
-            search
-          </SearchField__SearchButton>
+            <SearchField__SearchButton>
+              search
+            </SearchField__SearchButton>
+          </Link>
         </div>,
       ],
     },
@@ -107,12 +112,14 @@ ShallowWrapper {
             >
               genre
             </SearchField__SearchFilterButton>,
-            <SearchField__SearchButton
-              onClick={[Function]}
-              type="button"
+            <Link
+              replace={false}
+              to="/search?search=&searchBy=title&sortBy="
             >
-              search
-            </SearchField__SearchButton>,
+              <SearchField__SearchButton>
+                search
+              </SearchField__SearchButton>
+            </Link>,
           ],
         },
         "ref": null,
@@ -159,12 +166,24 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "search",
-              "onClick": [Function],
-              "type": "button",
+              "children": <SearchField__SearchButton>
+                search
+              </SearchField__SearchButton>,
+              "replace": false,
+              "to": "/search?search=&searchBy=title&sortBy=",
             },
             "ref": null,
-            "rendered": "search",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "search",
+              },
+              "ref": null,
+              "rendered": "search",
+              "type": [Function],
+            },
             "type": [Function],
           },
         ],
@@ -206,12 +225,14 @@ ShallowWrapper {
             >
               genre
             </SearchField__SearchFilterButton>
-            <SearchField__SearchButton
-              onClick={[Function]}
-              type="button"
+            <Link
+              replace={false}
+              to="/search?search=&searchBy=title&sortBy="
             >
-              search
-            </SearchField__SearchButton>
+              <SearchField__SearchButton>
+                search
+              </SearchField__SearchButton>
+            </Link>
           </div>,
         ],
       },
@@ -264,12 +285,14 @@ ShallowWrapper {
               >
                 genre
               </SearchField__SearchFilterButton>,
-              <SearchField__SearchButton
-                onClick={[Function]}
-                type="button"
+              <Link
+                replace={false}
+                to="/search?search=&searchBy=title&sortBy="
               >
-                search
-              </SearchField__SearchButton>,
+                <SearchField__SearchButton>
+                  search
+                </SearchField__SearchButton>
+              </Link>,
             ],
           },
           "ref": null,
@@ -316,12 +339,24 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "search",
-                "onClick": [Function],
-                "type": "button",
+                "children": <SearchField__SearchButton>
+                  search
+                </SearchField__SearchButton>,
+                "replace": false,
+                "to": "/search?search=&searchBy=title&sortBy=",
               },
               "ref": null,
-              "rendered": "search",
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "search",
+                },
+                "ref": null,
+                "rendered": "search",
+                "type": [Function],
+              },
               "type": [Function],
             },
           ],

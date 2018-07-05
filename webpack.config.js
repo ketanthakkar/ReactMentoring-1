@@ -47,7 +47,8 @@ module.exports = env => {
         ],
 
         devServer: {
-            contentBase: path.resolve(__dirname, "dist")
+            contentBase: path.resolve(__dirname, "dist"),
+            historyApiFallback: true,
         },
 
         optimization: {
@@ -70,7 +71,8 @@ module.exports = env => {
 
         output: {
             filename: "[name].[hash].js",
-            path: path.resolve(__dirname, "dist")
+            path: path.resolve(__dirname, "dist"),
+            publicPath: "/",
         }
     };
 };

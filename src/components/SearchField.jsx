@@ -1,8 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 import SEARCH_BY from '../constants/SEARCH_BY';
+import {
+    getItems,
+    setSearchValue,
+    setSearchBy,
+} from '../actions/appActions';
 
 const ENTER_KEY = 13;
 
@@ -70,12 +77,31 @@ const SearchButton = styled.button`
     }
 `;
 
-class SearchField extends React.Component {
+export class SearchField extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             value: this.props.value,
         }
+    }
+
+    componentDidMount() {
+        const params = new URLSearchParams(this.props.location.search);
+        this._getItems(params);
+    }
+
+    componentDidUpdate(prevProps) {
+        const params = new URLSearchParams(this.props.location.search);
+        if (prevProps.location.search !== this.props.location.search) {
+            this._getItems(params);
+        }
+    }
+
+    _getItems(params) {
+        const value = params.get('search');
+        const searchBy = params.get('searchBy');
+        const sortBy = params.get('sortBy');
+        this.props.getItems(value, searchBy, sortBy);
     }
 
     onChange(event) {
@@ -91,13 +117,14 @@ class SearchField extends React.Component {
     onEnter(event) {
         const isEnterPressed = event.which === ENTER_KEY || event.keyCode === ENTER_KEY;
         if (isEnterPressed) {
-            this.props.setSearchValue(this.state.value);
-            this.props.getItems();
-        }
-    }
+            const {
+                searchBy,
+                sortBy,
+            } = this.props;
 
-    onSearchClick() {
-        this.props.getItems();
+            this.props.setSearchValue(this.state.value);
+            this.props.history.push(`/search?search=${this.state.value}&searchBy=${searchBy}&sortBy=${sortBy}`);
+        }
     }
 
     onSearchByTitleClick() {
@@ -111,6 +138,7 @@ class SearchField extends React.Component {
     render() {
         const {
             searchBy,
+            sortBy,
         } = this.props;
 
         return (
@@ -137,12 +165,11 @@ class SearchField extends React.Component {
                     >
                         genre
                     </SearchFilterButton>
-                    <SearchButton
-                        type="button"
-                        onClick={this.onSearchClick.bind(this)}
-                    >
-                        search
-                    </SearchButton>
+                    <Link to={`/search?search=${this.state.value}&searchBy=${searchBy}&sortBy=${sortBy}`}>
+                        <SearchButton>
+                            search
+                        </SearchButton>
+                    </Link>
                 </div>
             </SearchFieldWrapper>
         )
@@ -152,15 +179,39 @@ class SearchField extends React.Component {
 SearchField.propTypes = {
     value: PropTypes.string,
     searchBy: PropTypes.string,
+    sortBy: PropTypes.string,
     getItems: PropTypes.func,
     setSearchBy: PropTypes.func,
+    setSearchValue: PropTypes.func,
+    location: PropTypes.object,
 };
 
 SearchField.defaultProps = {
     value: '',
     searchBy: SEARCH_BY.TITLE,
-    getItems: null,
+    sortBy: '',
+    getItems: function () {},
     setSearchBy: null,
+    setSearchValue: null,
+    location: {},
 };
 
-export default SearchField;
+const mapStateToProps = (state) => {
+    const {
+        value,
+        searchBy,
+        sortBy,
+    } = state.appReducer;
+
+    return {
+        value,
+        searchBy,
+        sortBy,
+    };
+};
+
+export default connect(mapStateToProps, {
+    getItems,
+    setSearchValue,
+    setSearchBy,
+})(SearchField);

@@ -1,8 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Item from './Item';
+import EmptyState from './EmptyState';
 
 const ItemsSection = styled.div`
     background-color: #fff;
@@ -16,20 +18,10 @@ const ItemsWrapper = styled.div`
     margin: 0 auto;
 `;
 
-const EmptyResults = styled.div`
-    font-size: 50px;
-    height: 400px;
-    padding-top: 100px;
-    width: 100%;
-    text-align: center;
-`;
-
-class Items extends React.Component {
+export class Items extends React.Component {
     render() {
         const {
             items,
-            getItem,
-            getItemsByGenre
         } = this.props;
 
         return (
@@ -41,13 +33,11 @@ class Items extends React.Component {
                                 <Item
                                     key={item.id}
                                     item={item}
-                                    getItem={getItem}
-                                    getItemsByGenre={getItemsByGenre}
                                 />
                             )
                         )
                     ) : (
-                        <EmptyResults>No films found</EmptyResults>
+                        <EmptyState/>
                     )}
                 </ItemsWrapper>
             </ItemsSection>
@@ -57,14 +47,20 @@ class Items extends React.Component {
 
 Items.propTypes = {
     items: PropTypes.array,
-    getItem: PropTypes.func,
-    getItemsByGenre: PropTypes.func,
 };
 
 Items.defaultProps = {
     items: [],
-    getItem: null,
-    getItemsByGenre: null,
 };
 
-export default Items;
+const mapStateToProps = (state) => {
+    const {
+        items,
+    } = state.appReducer;
+
+    return {
+        items,
+    };
+};
+
+export default connect(mapStateToProps)(Items);
