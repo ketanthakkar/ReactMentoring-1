@@ -4,12 +4,11 @@ import SEARCH_BY from '../constants/SEARCH_BY';
 import SORT_BY from '../constants/SORT_BY';
 
 const initialState = {
-    appState: APP_STATES.SEARCH_PAGE,
     value: '',
     sortBy: SORT_BY.RELEASE_DATE,
     searchBy: SEARCH_BY.TITLE,
     items: [],
-    item: {}
+    item: {},
 };
 
 const appReducer = (state = initialState, action) => {

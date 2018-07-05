@@ -92,7 +92,7 @@ export class Details extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.getItem(this.props.match.params.id);
     }
 

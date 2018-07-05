@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import URLSearchParams from 'url-search-params';
 
 import SEARCH_BY from '../constants/SEARCH_BY';
 import {
@@ -85,12 +86,13 @@ export class SearchField extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const params = new URLSearchParams(this.props.location.search);
         this._getItems(params);
     }
 
     componentDidUpdate(prevProps) {
+        console.log("update");
         const params = new URLSearchParams(this.props.location.search);
         if (prevProps.location.search !== this.props.location.search) {
             this._getItems(params);
@@ -98,9 +100,9 @@ export class SearchField extends React.Component {
     }
 
     _getItems(params) {
-        const value = params.get('search');
-        const searchBy = params.get('searchBy');
-        const sortBy = params.get('sortBy');
+        const value = params.get('search') || this.props.value;
+        const searchBy = params.get('searchBy') || this.props.searchBy;
+        const sortBy = params.get('sortBy') || this.props.sortBy;
         this.props.getItems(value, searchBy, sortBy);
     }
 
